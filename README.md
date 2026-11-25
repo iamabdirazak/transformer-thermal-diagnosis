@@ -5,7 +5,7 @@
   <img src="docs/model.png" alt="Transformer Thermal Model">
 </picture>
 
-Transformer Thermal Diagnosis watches an oil-immersed distribution transformer through the three readings a field monitor already logs: load, ambient temperature and top-oil temperature. It reports health in engineering units (how much hotter the oil runs than it should, how much heat the load does not explain, how fast the insulation is ageing) and raises one of three advisories: degraded cooling, extra internal heat or accelerated ageing. The model is the IEC 60076-7 thermal model, with three of its parameters learned from the unit's own first six weeks of oil temperature. Driven by a real field monitor's load and ambient record, it raises the right advisory 40 to 42 days before each fault is due for maintenance, with no false advisories over 7.8 healthy months, and runs in 0.02 ms per 15-minute step on one CPU thread.
+Transformer Thermal Diagnosis watches an oil-immersed distribution transformer through the three readings a field monitor already logs: load, ambient temperature and top-oil temperature. It reports health in engineering units (how much hotter the oil runs than it should, how much heat the load does not explain, how fast the insulation is ageing) and raises one of three advisories: degraded cooling, extra internal heat or accelerated ageing. The model is the IEC 60076-7 thermal model, with three of its parameters learned from the unit's own first six weeks of oil temperature. Driven by a real field monitor's load and ambient record, it raises the right advisory 40 to 42 days before each fault is due for maintenance, with no false advisories over 7.8 healthy months, and runs in 0.01 ms per 15-minute step on one CPU thread.
 
 ## The Transformer
 
@@ -116,7 +116,7 @@ The model is designed for an oil-immersed distribution transformer with a basic 
 | Load and weather change by the hour and the season | The twin runs on the measured load and ambient, so normal operation cancels out |
 | Cooling and internal faults develop over weeks | Health is fitted over a week, and advisories wait six hours |
 | Distribution transformers carry only a top-oil gauge, read in whole degrees | The week-long fit averages the rounding out |
-| The field monitor has a modest CPU | One 15-minute step takes 0.02 ms |
+| The field monitor has a modest CPU | One 15-minute step takes 0.01 ms |
 
 Some situations call for a different design. Electrical faults that develop in seconds, such as a winding short, need protection relays, not trend diagnosis. Insulation chemistry, such as moisture or dissolved gases, shows first in an oil sample; the extra-loss advisory says when to take one. Large power transformers with forced cooling and several fan stages need the standard's extended model, with a cooling state per stage.
 
@@ -186,7 +186,7 @@ and $c$ and $e$ are the least-squares solution of a 2×2 system, kept as five ru
 
 **Thresholds as maintenance criteria.** Cooling is worth inspecting when the oil runs 10% hotter than it should, an unexplained quarter of the no-load loss is worth an oil sample for gas analysis, and a day of hot spot above 98 °C uses more than a day of insulation life.
 
-**An ONNX graph with state.** The twin is a recursive filter, so the graph takes the readings and the twin's state and returns the next state with the step's terms. It is written directly in ONNX operators through a small expression builder, `src/deployment/export.py`, and stepped through every run it matches the Python pipeline to 7 × 10⁻⁷ on health.
+**An ONNX graph with state.** The twin is a recursive filter, so the graph takes the readings and the twin's state and returns the next state with the step's terms. It is written directly in ONNX operators through a small expression builder, `src/deployment/export.py`, and stepped through every run it matches the Python pipeline to 6 × 10⁻⁷ on health.
 
 ## How to Use It
 
