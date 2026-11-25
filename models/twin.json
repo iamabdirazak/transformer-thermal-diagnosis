@@ -1,0 +1,9 @@
+{
+  "rise_rated": 51.01287790467701,
+  "loss_ratio": 6.000949384690744,
+  "oil_exponent": 0.8,
+  "oil_constant": 150.3085381000465,
+  "hot_spot_gradient": 25.3,
+  "winding_exponent": 1.6,
+  "extra_loss": 0.0
+}

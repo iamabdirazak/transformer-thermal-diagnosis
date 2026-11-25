@@ -1,0 +1,83 @@
+{
+  "learned": {
+    "cooling-summer": {
+      "other_causes_raised": [],
+      "false_hours_before_onset": 0,
+      "lead_days": 39.9,
+      "severity": 0.34,
+      "true_health": 1.134
+    },
+    "cooling-winter": {
+      "other_causes_raised": [],
+      "false_hours_before_onset": 0,
+      "lead_days": 41.9,
+      "severity": 0.3,
+      "true_health": 1.121
+    },
+    "losses-summer": {
+      "other_causes_raised": [],
+      "false_hours_before_onset": 0,
+      "lead_days": 41.4,
+      "severity": 0.31,
+      "true_health": 0.31
+    },
+    "losses-winter": {
+      "other_causes_raised": [],
+      "false_hours_before_onset": 0,
+      "lead_days": 42.4,
+      "severity": 0.29,
+      "true_health": 0.294
+    },
+    "healthy": {
+      "months": 7.8,
+      "false_advisories_per_month": 0.0,
+      "ageing_hours_true": 423,
+      "ageing_hours_advised": 411,
+      "ageing_hours_agreeing": 383
+    }
+  },
+  "standard": {
+    "cooling-summer": {
+      "other_causes_raised": [],
+      "false_hours_before_onset": 0,
+      "lead_days": 37.9,
+      "severity": 0.37,
+      "true_health": 1.147
+    },
+    "cooling-winter": {
+      "other_causes_raised": [],
+      "false_hours_before_onset": 0,
+      "lead_days": 38.9,
+      "severity": 0.35,
+      "true_health": 1.14
+    },
+    "losses-summer": {
+      "other_causes_raised": [],
+      "false_hours_before_onset": 0,
+      "lead_days": 15.4,
+      "severity": 0.74,
+      "true_health": 0.743
+    },
+    "losses-winter": {
+      "other_causes_raised": [],
+      "false_hours_before_onset": 0,
+      "lead_days": 15.3,
+      "severity": 0.74,
+      "true_health": 0.744
+    },
+    "healthy": {
+      "months": 7.8,
+      "false_advisories_per_month": 0.0,
+      "ageing_hours_true": 423,
+      "ageing_hours_advised": 411,
+      "ageing_hours_agreeing": 383
+    }
+  },
+  "edge": {
+    "size_kb": 2.7,
+    "latency_ms_median": 0.011,
+    "latency_ms_p99": 0.012,
+    "budget_ms": 50.0,
+    "max_health_difference": 6.3e-07
+  }
+}
